@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonTabBar, IonTabs } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tabs.page.scss'],
 })
 export class TabsPage implements OnInit {
-
+  @ViewChild('tabs') tabs: IonTabs
   constructor() { }
 
   ngOnInit() {
+    this.tabs.select('home')
   }
 
 }
