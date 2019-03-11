@@ -29,8 +29,8 @@ export class LoginPage implements OnInit {
     try {
       //kind of a hack
       const res = await this.afAuth.auth.signInWithEmailAndPassword(username + '@gmail.com', password)
-      this.showAlert("Success!","Logged in")
-      this.router.navigate([ '/tabs' ])
+      this.showAlert("Success,'username'!","Logged in")
+      this.router.navigate([ '/tabs' ]) 
     
     }catch(err) {
       console.dir(err)

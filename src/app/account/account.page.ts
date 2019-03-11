@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-account',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountPage implements OnInit {
 
+  /*username: string =""
+  password: string =""
+  
+  constructor(public navCtrl: NavController, public http: Http) {
+  //this.data.username = ‘’;
+  this.data.response = ‘’;*/
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

@@ -9,6 +9,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+  public appMenu = [
+    {title: 'File complaint', url: '/test1', icon: 'add'},
+    {title: 'File missing case', url: '/test2', icon: 'add'},
+    {title: 'Report crime', url: '/test3', icon: 'add'},
+    {title: 'Contact', url: '/test4', icon: 'contacts'}
+
+  ];
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
