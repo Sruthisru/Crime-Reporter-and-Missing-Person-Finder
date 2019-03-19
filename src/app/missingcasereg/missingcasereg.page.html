@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>File missing cases</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+      <ion-item lines = "none">
+        <b>Details of missing person</b>
+      </ion-item>
+    <ion-item>
+      <ion-label position = "floating">Name</ion-label>
+      <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position = "floating">Age</ion-label>
+        <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label position = "floating">Gender</ion-label>
+      <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position = "floating">Contact address</ion-label>
+      <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position = "floating">Contact number</ion-label>
+      <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+    </ion-item>
+    
+  </ion-list>
+
+<input type="file" *ngIf = "!imageURL" (change)="fileChanged($event)"/>
+
+<ion-card *ngIf ="imageURL">
+  <img src ="https://ucarecdn.com/{{ imageURL }}/">
+  </ion-card-content>
+    <ion-textarea placeholder="Enter some description" [(ngModel)] = "desc" ></ion-textarea>
+    <ion-button shape= "round" color = "primary" (click)="createPost()">POST</ion-button>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>

@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app'
 import { Router } from '@angular/router';
 import { AlertController} from '@ionic/angular'
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class LoginPage implements OnInit {
   constructor(
     public afAuth: AngularFireAuth,
     public router :Router,
-    public alert: AlertController
+    public alert: AlertController,
+    public user: UserService
 
   ) { }
 
@@ -29,8 +31,15 @@ export class LoginPage implements OnInit {
     try {
       //kind of a hack
       const res = await this.afAuth.auth.signInWithEmailAndPassword(username + '@gmail.com', password)
+       
+      if(res.user) {
+        this.user.setUser({
+          username,
+          uid:res.user.uid
+        })
       this.showAlert("Success,'username'!","Logged in")
-      this.router.navigate([ '/tabs' ]) 
+      this.router.navigate([ '/tabs' ])
+      }
     
     }catch(err) {
       console.dir(err)

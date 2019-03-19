@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
+  { path: 'missingcasereg', loadChildren: './missingcasereg/missingcasereg.module#MissingcaseregPageModule' },
   
 ];
 
