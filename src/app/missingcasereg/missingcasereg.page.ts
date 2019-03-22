@@ -3,6 +3,8 @@ import { Http } from '@angular/http';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 import { firestore } from 'firebase/app';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-missingcasereg',
   templateUrl: './missingcasereg.page.html',
@@ -14,7 +16,9 @@ export class MissingcaseregPage implements OnInit {
   desc: string
   constructor(public http: Http,
     public afstore: AngularFirestore,
-    public user: UserService
+    public user: UserService,
+    public router :Router
+
     ) { }
 
   ngOnInit() {
@@ -47,5 +51,7 @@ export class MissingcaseregPage implements OnInit {
     this.imageURL = event.json().file
     })
   }
-
+backClick(){
+  this.router.navigate([ '/tabs' ])
+}
 }

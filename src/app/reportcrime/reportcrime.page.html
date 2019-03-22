@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-button slot="start" (click)="backClick()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+    <ion-title>Report Crime</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+      <ion-item lines = "none">
+        <b>Enter the details of crime</b>
+      </ion-item>
+    <ion-item>
+      <ion-label position = "floating">Subject</ion-label>
+      <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position = "floating">Location</ion-label>
+        <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label position = "floating">Date and time</ion-label>
+      <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label position = "floating">Discription</ion-label>
+      <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+      </ion-item>
+  </ion-list>
+  <div padding>
+      <ion-button fill="solid" expand="block" color="dark" (click)="reportCrime()" >Submit</ion-button>
+    </div>
+</ion-content>

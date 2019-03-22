@@ -8,6 +8,9 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'missingcasereg', loadChildren: './missingcasereg/missingcasereg.module#MissingcaseregPageModule' },
+  { path: 'filecomplaint', loadChildren: './filecomplaint/filecomplaint.module#FilecomplaintPageModule' },
+  { path: 'reportcrime', loadChildren: './reportcrime/reportcrime.module#ReportcrimePageModule' },
+  { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' },
   
 ];
 
