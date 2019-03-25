@@ -14,6 +14,7 @@ export class MissingcaseregPage implements OnInit {
 
   imageURL: string
   desc: string
+
   constructor(public http: Http,
     public afstore: AngularFirestore,
     public user: UserService,
@@ -28,7 +29,7 @@ export class MissingcaseregPage implements OnInit {
     const image= this.imageURL
     const desc= this.desc
 
-    this.afstore.doc('users/${this.user.getUID()}').update({
+    this.afstore.doc(`users/${this.user.getUID()}`).update({
       posts: firestore.FieldValue.arrayUnion({
         image,
         desc

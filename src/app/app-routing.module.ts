@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'filecomplaint', loadChildren: './filecomplaint/filecomplaint.module#FilecomplaintPageModule' },
   { path: 'reportcrime', loadChildren: './reportcrime/reportcrime.module#ReportcrimePageModule' },
   { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' },
-  
+  { path: 'admintabs', loadChildren: './admintabs/admintabs.module#AdmintabsPageModule'},
+  { path: 'channel-messages', loadChildren: './tabs/chats/channel-messages/channel-messages.module#ChannelMessagesPageModule' },
+  { path: 'channel-create', loadChildren: './tabs/chats/channel-create/channel-create.module#ChannelCreatePageModule' },
 ];
 
 @NgModule({

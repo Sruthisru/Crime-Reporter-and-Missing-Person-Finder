@@ -13,7 +13,7 @@ export class AppComponent {
     {title: 'File complaint', url: '/filecomplaint', icon: 'add'},
     {title: 'File missing case', url: '/missingcasereg', icon: 'add'},
     {title: 'Report crime', url: '/reportcrime', icon: 'add'},
-    {title: 'Contact', url: '/contact', icon: 'contacts'}
+    {title: 'contact', url: '/contact', icon: 'contacts'}
 
   ];
 

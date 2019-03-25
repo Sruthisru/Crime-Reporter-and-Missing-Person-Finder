@@ -38,7 +38,12 @@ export class LoginPage implements OnInit {
           uid:res.user.uid
         })
       this.showAlert("Success,'username'!","Logged in")
+      if( username == "admin"){
+        this.router.navigate([ '/admintabs' ])
+      }
+      else{
       this.router.navigate([ '/tabs' ])
+      }
       }
     
     }catch(err) {

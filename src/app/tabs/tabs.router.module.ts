@@ -8,6 +8,7 @@ const routes: Routes = [
         component: TabsPage,
         children: [
             { path: 'home', loadChildren: '../home/home.module#HomePageModule' },
+            { path: 'chats', loadChildren: './tabs/chats/chats.module#ChatsPageModule' },
             { path: 'search', loadChildren: '../search/search.module#SearchPageModule' },
             { path: 'account', loadChildren: '../account/account.module#AccountPageModule' },
         ]
