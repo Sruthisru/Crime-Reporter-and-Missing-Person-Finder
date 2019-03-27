@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { AlertController} from '@ionic/angular'
 import { UserService } from '../user.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -27,6 +26,7 @@ export class LoginPage implements OnInit {
   }
   // abcdefg + @gmail.com
   async login(){
+
     const { username, password }=this
     try {
       //kind of a hack
