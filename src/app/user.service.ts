@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core'
 
 interface user {
-    name:string,
+    
     username: string,
+    
     uid: string
 }
+
 
 @Injectable()
 export class UserService {
         private  user: user
-
+    
         constructor() {
 
         }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController} from '@ionic/angular'
 import { Http } from '@angular/http';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
@@ -18,7 +19,8 @@ export class MissingcaseregPage implements OnInit {
   constructor(public http: Http,
     public afstore: AngularFirestore,
     public user: UserService,
-    public router :Router
+    public router :Router,
+    public alert: AlertController
 
     ) { }
 
@@ -35,6 +37,8 @@ export class MissingcaseregPage implements OnInit {
         desc
       })
     })
+    this.showAlert("Success!","Done")
+
   }
 
   fileChanged(event){
@@ -55,4 +59,13 @@ export class MissingcaseregPage implements OnInit {
 backClick(){
   this.router.navigate([ '/tabs' ])
 }
+async showAlert(header: string, message: string) {
+  const alert = await  this.alert.create({
+  header,
+  message,
+  buttons:["Ok"]
+  })
+  await alert.present()
+
+  }
 }
