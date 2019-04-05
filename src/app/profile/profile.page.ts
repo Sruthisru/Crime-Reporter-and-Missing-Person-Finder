@@ -11,18 +11,23 @@ import { Router } from '@angular/router';
 export class ProfilePage implements OnInit {
 
 	mainuser: AngularFirestoreDocument
-	userPosts
+	//userPosts
 	sub
-	posts
+	missing
+	name: string
+    address: string
+    no:number
 	username: string
-	//profilePic: string
 
 	constructor(private afs: AngularFirestore, private user: UserService, private router: Router) {
 		this.mainuser = afs.doc(`users/${user.getUID()}`)
 		this.sub = this.mainuser.valueChanges().subscribe(event => {
-			this.posts = event.posts
+			this.missing = event.missing
+			this.name = event.name
 			this.username = event.username
-			//this.profilePic = event.profilePic
+			this.address = event.address
+			this.no = event.no
+
 		})
 	}
 

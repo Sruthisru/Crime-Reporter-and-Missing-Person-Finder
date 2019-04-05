@@ -13,12 +13,12 @@ import { Router } from '@angular/router';
 })
 export class MissingcaseregPage implements OnInit {
 
-  name: string
+  name: string=""
   age: number
-  gender: string
-  address: string
+  gender: string=""
+  address: string=""
   phone: number
-  desc: string
+  desc: string=""
   imageURL: string
   
 

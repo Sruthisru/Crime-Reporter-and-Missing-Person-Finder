@@ -4,33 +4,37 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-	<!--<h3 class="userDetails">GEC student</h3>
 
 	
-<app-loading *ngIf="!posts"></app-loading>
+		<!--<app-loading *ngIf="!posts"></app-loading>-->
 
 	<div id="profile-info" *ngIf="username">
 		<ion-grid>
 			<ion-row>
 	
 				<ion-col size="8">
-					<p>{{ username }}</p>
+					<p>{{ name }}</p>
 					<ion-button shape="round" color="primary" routerLink="/tabs/edit-profile">Edit Profile</ion-button>
 				</ion-col>
 			</ion-row>
 		</ion-grid>
 	</div>
+</ion-content>
+<!--
+	Getting image from firebase-executable code
+
+
+	<div id="images" *ngIf="missing">
+		<div class="image" *ngFor="let miss of missing">
+			<ion-card>
+				<ion-img src="https://ucarecdn.com/{{ miss.image }}/"></ion-img>
+			</ion-card>
+		</div>
+	</div>
 -->
 
-	<div id="images" *ngIf="posts">
-		<div class="image" *ngFor="let post of posts">
-			<ion-card>
-				<ion-img src="https://ucarecdn.com/{{ post.image }}/"></ion-img>
-			</ion-card>
+
+
 	<!--
 			<img (click)="goTo(post)" class="main-image" src="https://ucarecdn.com/{{ post }}/-/scale_crop/200x200/center/" />
 	-->
-		</div>
-	</div>
-
-</ion-content>

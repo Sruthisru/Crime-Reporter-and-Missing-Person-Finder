@@ -12,15 +12,15 @@ import { Router } from '@angular/router';
 })
 export class AddmissingpersonPage implements OnInit {
 
-  name: string
+  name: string=""
   age: number
-  gender: string
-  address: string
+  gender: string=""
+  address: string=""
   phone: number
-  desc: string
-  imageURL: string
+  desc: string=""
+  imgURL: string
 
-  @ViewChild('fileButton') fileButton
+  @ViewChild('filebutton') filebutton
 
   constructor(public http: Http,
     public afstore: AngularFirestore,
@@ -32,7 +32,7 @@ export class AddmissingpersonPage implements OnInit {
   ngOnInit() {
   }
   addMissingPerson(){
-  const image= this.imageURL
+  const image= this.imgURL
     const desc=this.desc
     const name=this.name
     const age=this.age
@@ -41,7 +41,7 @@ export class AddmissingpersonPage implements OnInit {
     const phone=this.phone
 
     this.afstore.doc(`users/${this.user.getUID()}`).update({
-      missing: firestore.FieldValue.arrayUnion({
+      addmissingperson: firestore.FieldValue.arrayUnion({
         age,
         gender,
         address,
@@ -54,7 +54,7 @@ export class AddmissingpersonPage implements OnInit {
     })
     this.showAlert("Success!","Missing person added")
   }
-  fileChanged(event){
+  fileChange(event){
     
     const files = event.target.files
 
@@ -66,12 +66,12 @@ export class AddmissingpersonPage implements OnInit {
     this.http.post('https://upload.uploadcare.com/base/', data)
     .subscribe(event => {
     console.log(event)
-    this.imageURL = event.json().file
+    this.imgURL = event.json().file
     })
   }
 
-uploadFile(){
-  this.fileButton.nativeElement.click()
+uploadImage(){
+  this.filebutton.nativeElement.click()
 }
 
 
