@@ -5,13 +5,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 import { firestore } from 'firebase/app';
 import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-missingcasereg',
-  templateUrl: './missingcasereg.page.html',
-  styleUrls: ['./missingcasereg.page.scss'],
+  selector: 'app-addmissingperson',
+  templateUrl: './addmissingperson.page.html',
+  styleUrls: ['./addmissingperson.page.scss'],
 })
-export class MissingcaseregPage implements OnInit {
+export class AddmissingpersonPage implements OnInit {
 
   name: string
   age: number
@@ -20,7 +19,6 @@ export class MissingcaseregPage implements OnInit {
   phone: number
   desc: string
   imageURL: string
-  
 
   @ViewChild('fileButton') fileButton
 
@@ -29,14 +27,12 @@ export class MissingcaseregPage implements OnInit {
     public user: UserService,
     public router :Router,
     public alert: AlertController
-
-    ) { }
+  ) { }
 
   ngOnInit() {
   }
-
-  createPost() {
-    const image= this.imageURL
+  addMissingPerson(){
+  const image= this.imageURL
     const desc=this.desc
     const name=this.name
     const age=this.age
@@ -56,10 +52,8 @@ export class MissingcaseregPage implements OnInit {
         
       })
     })
-    this.showAlert("Success!","Done")
-
+    this.showAlert("Success!","Missing person added")
   }
-
   fileChanged(event){
     
     const files = event.target.files
@@ -83,7 +77,7 @@ uploadFile(){
 
 
 backClick(){
-  this.router.navigate([ '/tabs' ])
+  this.router.navigate([ '/admintabs' ])
 }
 async showAlert(header: string, message: string) {
   const alert = await  this.alert.create({

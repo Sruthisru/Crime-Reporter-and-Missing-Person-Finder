@@ -2,15 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
 import { IonicModule } from '@ionic/angular';
-
-import { AdminsearchPage } from './adminsearch.page';
+import { AddmissingpersonPage } from './addmissingperson.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AdminsearchPage
+    component: AddmissingpersonPage
   }
 ];
 
@@ -21,6 +19,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AdminsearchPage]
+  declarations: [AddmissingpersonPage]
 })
-export class AdminsearchPageModule {}
+export class AddmissingpersonPageModule {}

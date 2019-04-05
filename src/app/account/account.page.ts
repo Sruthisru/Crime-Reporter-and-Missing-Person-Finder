@@ -21,8 +21,4 @@ export class AccountPage implements OnInit {
   ngOnInit() {
     
   }
-  buttonClick(){
-    this.router.navigate([ '/profile' ])
-  }
-
 }

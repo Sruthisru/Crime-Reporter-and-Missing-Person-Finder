@@ -14,19 +14,23 @@
       </ion-item>
     <ion-item>
       <ion-label position = "floating">Subject</ion-label>
-      <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+      <ion-input type="text" [(ngModel)]="subject" name="subject"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label position = "floating">Location</ion-label>
-        <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+        <ion-input type="text" [(ngModel)]="location" name="location"></ion-input>
       </ion-item>
       <ion-item>
-      <ion-label position = "floating">Date and time</ion-label>
-      <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+        <ion-label position= "floating">Date</ion-label>
+        <ion-datetime display-format="MMM/DD/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
       </ion-item>
+      <!--<ion-item>
+      <ion-label position = "floating">Date</ion-label>
+      <ion-input type="text" [(ngModel)]="date" name="date"></ion-input>
+      </ion-item>-->
       <ion-item>
       <ion-label position = "floating">Discription</ion-label>
-      <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+      <ion-input type="text" [(ngModel)]="description" name="description"></ion-input>
       </ion-item>
   </ion-list>
   <div padding>

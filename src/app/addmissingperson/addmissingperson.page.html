@@ -1,0 +1,43 @@
+
+<ion-header>
+    <ion-toolbar>
+      <ion-button slot="start" (click)="backClick()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+      <ion-title>Add missing person</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+
+<ion-list>
+<ion-item lines = "none">
+    <b>Details of missing person</b>
+  </ion-item>
+</ion-list>
+<br/>
+    <div class="center">
+      <div class="camera"></div>
+      <input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" class="filebtn" #fileButton/>
+      <ion-button shape="round" color="primary" (click)="uploadFile()" *ngIf="!imageURL" fill="outline">Upload image</ion-button>
+      
+      <ion-card *ngIf ="imageURL">
+        <ion-img src="https://ucarecdn.com/{{ imageURL }}/"></ion-img>
+       
+      <ion-card-content>
+        <ion-textarea placeholder="enter name" [(ngModel)]="name"></ion-textarea>
+        <ion-textarea placeholder="enter age" [(ngModel)]="age"></ion-textarea>
+        <ion-textarea placeholder="enter gender" [(ngModel)]="gender"></ion-textarea>
+        <ion-textarea placeholder="enter adress" [(ngModel)]="address"></ion-textarea>
+        <ion-textarea placeholder="enter phone" [(ngModel)]="phone"></ion-textarea>
+        <ion-textarea placeholder="enter desc" [(ngModel)]="desc"></ion-textarea>
+
+      </ion-card-content>
+    </ion-card>
+    </div> 
+    <br/> 
+<!--<ion-button shape="round" color="primary" (click)="createPost()">Submit</ion-button>-->
+  <div padding>
+    <ion-button shape="round" fill="solid" expand="block" color="dark" (click)="addMissingPerson()" >Submit</ion-button>
+  </div>
+</ion-content>

@@ -8,7 +8,7 @@ const routes: Routes = [
         component: AdmintabsPage,
         children: [
             { path: 'adminhome', loadChildren: '../adminhome/adminhome.module#AdminhomePageModule' },
-            { path: 'adminsearch', loadChildren: '../adminsearch/adminsearch.module#AdminsearchPageModule' },
+            { path: 'addmissingperson', loadChildren: '../addmissingperson/addmissingperson.module#AddmissingpersonPageModule' },
             { path: 'adminnotification', loadChildren: '../adminnotification/adminnotification.module#AdminnotificationPageModule' },
             { path: 'adminaccount', loadChildren: '../adminaccount/adminaccount.module#AdminaccountPageModule' },
         ]

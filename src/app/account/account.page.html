@@ -20,13 +20,14 @@
       </ion-list>
       
       <ion-list>
-        <ion-item (click)="buttonClick()" lines="none">
+      <ion-item lines="none">
           <ion-icon name="person"></ion-icon>
-          <ion-label>Profile</ion-label>
-          <ion-icon name="create"></ion-icon>
+          <a routerLink="/profile">Profile</a>
+          <!--<ion-icon name="create"></ion-icon>-->
       </ion-item>
 
       <ion-item href="https://www.ionicframework.com" lines="none">
+        
         <!--<ion-icon ios="ios-notifications-outline" class="sidebarCss" md="ios-notifications-outline"></ion-icon>-->
         <ion-icon name="notifications"></ion-icon>
         <ion-label>Notifications</ion-label>

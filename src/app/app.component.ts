@@ -16,7 +16,6 @@ export class AppComponent {
     {title: 'contact', url: '/contact', icon: 'contacts'}
 
   ];
-
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
