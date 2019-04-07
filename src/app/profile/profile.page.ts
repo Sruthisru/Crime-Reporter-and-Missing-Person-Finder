@@ -15,8 +15,8 @@ export class ProfilePage implements OnInit {
 	sub
 	missing
 	name: string
-    address: string
-    no:number
+	address: string
+	no:number
 	username: string
 
 	constructor(private afs: AngularFirestore, private user: UserService, private router: Router) {

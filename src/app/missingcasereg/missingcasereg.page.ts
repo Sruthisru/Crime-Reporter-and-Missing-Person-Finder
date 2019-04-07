@@ -20,7 +20,9 @@ export class MissingcaseregPage implements OnInit {
   phone: number
   desc: string=""
   imageURL: string
+  noFace: boolean = false
   
+	busy: boolean = false
 
   @ViewChild('fileButton') fileButton
 
@@ -56,12 +58,18 @@ export class MissingcaseregPage implements OnInit {
         
       })
     })
+    //this.afstore.doc(`missingpersons/${this.user.getUID()}`).update({
+      //miss: firestore.FieldValue.arrayUnion({  
+     //  image
+    //})
+
+  //})
     this.showAlert("Success!","Done")
 
   }
 
   fileChanged(event){
-    
+    this.busy = true
     const files = event.target.files
 
     const data = new FormData()
@@ -73,6 +81,11 @@ export class MissingcaseregPage implements OnInit {
     .subscribe(event => {
     console.log(event)
     this.imageURL = event.json().file
+    this.busy = false
+
+    this.http.get(`https://ucarecdn.com/${this.imageURL}/detect_faces/`).subscribe(event => {
+      this.noFace = event.json().faces == 0
+    })
     })
   }
 

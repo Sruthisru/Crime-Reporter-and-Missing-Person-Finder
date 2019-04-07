@@ -52,6 +52,9 @@ export class AddmissingpersonPage implements OnInit {
         
       })
     })
+    //this.afstore.doc(`missingpersons/${image}`).update({  
+    //  image
+   //})
     this.showAlert("Success!","Missing person added")
   }
   fileChange(event){

@@ -9,15 +9,36 @@
 		<!--<app-loading *ngIf="!posts"></app-loading>-->
 
 	<div id="profile-info" *ngIf="username">
-		<ion-grid>
+		<!--<ion-grid>
 			<ion-row>
-	
 				<ion-col size="8">
-					<p>{{ name }}</p>
+					{{ name }}
 					<ion-button shape="round" color="primary" routerLink="/tabs/edit-profile">Edit Profile</ion-button>
 				</ion-col>
 			</ion-row>
-		</ion-grid>
+			<ion-row>
+				<ion-col>
+					{{ no }}
+				</ion-col>
+			</ion-row>
+		</ion-grid>-->
+		<ion-list class="headerMAin">
+			<ion-item color="primary">
+				<h3 class="userName">{{ name }}</h3>
+			</ion-item>
+			<ion-item lines="full">
+				<ion-text color="secondary">
+				<h3 class="userno">{{ no }}</h3>
+				</ion-text>
+			</ion-item>
+		</ion-list>
+		<ion-list>
+			<ion-item>
+				<h4>Address</h4>
+				<br><br><br>
+				{{ address }}
+			</ion-item>
+		</ion-list>
 	</div>
 </ion-content>
 <!--

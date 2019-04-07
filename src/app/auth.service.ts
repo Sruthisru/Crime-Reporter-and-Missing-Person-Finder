@@ -1,4 +1,4 @@
-/*import { Injectable } from '@angular/core'
+import { Injectable } from '@angular/core'
 import { Router, CanActivate } from '@angular/router'
 import { UserService } from './user.service'
 
@@ -17,4 +17,4 @@ export class AuthService implements CanActivate {
 		this.router.navigate(['/login'])
 		return false
 	}
-}*/
+}
