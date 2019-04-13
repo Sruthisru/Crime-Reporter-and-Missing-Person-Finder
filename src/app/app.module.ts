@@ -14,6 +14,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { HttpModule } from '@angular/http'
 import { UserService } from './user.service';
+import { MissingService } from './missing.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { ShareModule } from './share.module';
@@ -35,6 +36,7 @@ import { ShareModule } from './share.module';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     UserService,
+    MissingService,
     AuthService
   ],
   bootstrap: [AppComponent]

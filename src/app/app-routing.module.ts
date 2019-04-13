@@ -14,6 +14,12 @@ const routes: Routes = [
   { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' },
   { path: 'admintabs', loadChildren: './admintabs/admintabs.module#AdmintabsPageModule'},
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'addmissingperson', loadChildren: './addmissingperson/addmissingperson.module#AddmissingpersonPageModule' },
+  { path: 'listcomplaints', loadChildren: './listcomplaints/listcomplaints.module#ListcomplaintsPageModule' },
+  { path: 'listcrimes', loadChildren: './listcrimes/listcrimes.module#ListcrimesPageModule' },
+  { path: 'listmissing', loadChildren: './listmissing/listmissing.module#ListmissingPageModule' },
+  { path: 'editprofile', loadChildren: './editprofile/editprofile.module#EditprofilePageModule' },
+
   //{ path: 'profile', loadChildren: './account/profile/profile.module#ProfilePageModule' },
   //{ path: 'channel-messages', loadChildren: './tabs/chats/channel-messages/channel-messages.module#ChannelMessagesPageModule' },
   //{ path: 'channel-create', loadChildren: './tabs/chats/channel-create/channel-create.module#ChannelCreatePageModule' },

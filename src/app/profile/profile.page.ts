@@ -34,6 +34,19 @@ export class ProfilePage implements OnInit {
 	ngOnDestroy() {
 		this.sub.unsubscribe()
 	}
+	editprofile()
+	{
+		this.router.navigate([ '/editprofile' ])
+
+	}
+	backClick(){
+		if( this.username == "admin"){
+			this.router.navigate([ '/admintabs/adminaccount' ])
+		  }
+		  else{
+			this.router.navigate([ '/tabs/account' ])
+		  }
+	}
 /*
 	goTo(postID: string) {
 

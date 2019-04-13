@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+<ion-button slot="start" fill="clear" color="dark" (click)="backClick()">
+		<ion-icon name="arrow-back"></ion-icon>
+	</ion-button>
     <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -23,11 +26,11 @@
 			</ion-row>
 		</ion-grid>-->
 		<ion-list class="headerMAin">
-			<ion-item color="primary">
+			<ion-item color="dark">
 				<h3 class="userName">{{ name }}</h3>
 			</ion-item>
 			<ion-item lines="full">
-				<ion-text color="secondary">
+				<ion-text color="dark">
 				<h3 class="userno">{{ no }}</h3>
 				</ion-text>
 			</ion-item>
@@ -38,7 +41,15 @@
 				<br><br><br>
 				{{ address }}
 			</ion-item>
+			<ion-item>
+				<h4>Username</h4>
+				<br><br><br>
+				{{ username }}
+			</ion-item>
+			
 		</ion-list>
+		<ion-button shape="round" color="dark" (click)="editprofile()" *ngIf="!imageURL" fill="outline">Edit profile</ion-button>
+
 	</div>
 </ion-content>
 <!--

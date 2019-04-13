@@ -10,6 +10,7 @@ const routes: Routes = [
             { path: 'adminhome', loadChildren: '../adminhome/adminhome.module#AdminhomePageModule' },
             { path: 'addmissingperson', loadChildren: '../addmissingperson/addmissingperson.module#AddmissingpersonPageModule' },
             { path: 'adminnotification', loadChildren: '../adminnotification/adminnotification.module#AdminnotificationPageModule' },
+            { path: 'missingpersonsimage', loadChildren: '../missingpersonsimage/missingpersonsimage.module#MissingpersonsimagePageModule' },
             { path: 'adminaccount', loadChildren: '../adminaccount/adminaccount.module#AdminaccountPageModule' },
         ]
     }

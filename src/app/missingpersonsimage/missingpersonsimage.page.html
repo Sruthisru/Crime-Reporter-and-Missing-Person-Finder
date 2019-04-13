@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Missing Persons Image</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	<div id="images" *ngIf="adminmissingperson">
+		<div class="image" *ngFor="let miss of 	adminmissingperson">
+			<ion-card>
+				<ion-img src="https://ucarecdn.com/{{ miss }}/"></ion-img>
+      </ion-card>
+      <ion-card-content>
+        <p>
+          Description : {{ adminmissingperson.desc }}
+        </p>
+      </ion-card-content>
+    </div>
+  </div>
+</ion-content>
+
+      <!--<ion-card-content>
+        <p>{{ miss.desc }}</p>
+      </ion-card-content>-->
+		
+  <!--	
+	<div id="images" *ngIf="posts">
+		<div class="image" *ngFor="let miss of missing">
+			<img  class="main-image" src="https://ucarecdn.com/{{ post }}/-/scale_crop/200x200/center/" />
+		</div>
+	</div>
+-->

@@ -3,8 +3,11 @@ import { AlertController} from '@ionic/angular'
 import { Http } from '@angular/http';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
+//import { MissingService } from '../missing.service';
+
 import { firestore } from 'firebase/app';
 import { Router } from '@angular/router';
+import { sample } from 'rxjs/operators';
 
 @Component({
   selector: 'app-missingcasereg',
@@ -21,7 +24,7 @@ export class MissingcaseregPage implements OnInit {
   desc: string=""
   imageURL: string
   noFace: boolean = false
-  
+
 	busy: boolean = false
 
   @ViewChild('fileButton') fileButton
@@ -29,6 +32,7 @@ export class MissingcaseregPage implements OnInit {
   constructor(public http: Http,
     public afstore: AngularFirestore,
     public user: UserService,
+    //public missing: MissingService,
     public router :Router,
     public alert: AlertController
 
@@ -37,6 +41,7 @@ export class MissingcaseregPage implements OnInit {
   ngOnInit() {
   }
 
+  
   createPost() {
     const image= this.imageURL
     const desc=this.desc
@@ -47,23 +52,36 @@ export class MissingcaseregPage implements OnInit {
     const phone=this.phone
 
     this.afstore.doc(`users/${this.user.getUID()}`).update({
-      missing: firestore.FieldValue.arrayUnion({
-        age,
-        gender,
-        address,
-        phone,
-        image,
-        desc,
-        name
-        
-      })
+      missingperson: firestore.FieldValue.arrayUnion(`${image}`)
     })
-    //this.afstore.doc(`missingpersons/${this.user.getUID()}`).update({
-      //miss: firestore.FieldValue.arrayUnion({  
-     //  image
-    //})
+    this.afstore.doc(`missingperson/${image}`).set({
+      desc,
+      name,
+      age,
+      gender,
+      address,
+      phone,
+      Username: this.user.getUsername() 
+    })
+    
 
-  //})
+  /*  
+  this.afstore.doc(`missingpersons/${this.user.getUID()}`).get().then(function(doc) {
+      if (doc.exists) {
+          console.log("Document data:", doc.data());
+      } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+      }
+  }).catch(function(error) {
+      console.log("Error getting document:", error);
+  });
+
+    this.afstore.doc(`missingpersons/${this.user.getUID()}`).set({
+      miss: firestore.FieldValue.arrayUnion({  
+       image
+    })
+})*/
     this.showAlert("Success!","Done")
 
   }

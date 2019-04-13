@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-button slot="start" fill="clear" color="dark" (click)="backClick()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+    <ion-title>listcrimes</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!--
+<ion-content padding>
+  <div id="comps" *ngIf="crimes">
+		<div class="comp" *ngFor="let crime of crimes">
+			<ion-card>
+      <p>
+        Complaints: {{ crime.subject }}
+      </p>>      
+    </ion-card>
+    </div>
+  </div>
+</ion-content>-->
+<ion-content>
+  <pre>{{crimes | json | async}}</pre>
+ </ion-content>

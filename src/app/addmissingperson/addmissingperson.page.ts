@@ -20,6 +20,8 @@ export class AddmissingpersonPage implements OnInit {
   desc: string=""
   imgURL: string
 
+  busy: boolean = false
+
   @ViewChild('filebutton') filebutton
 
   constructor(public http: Http,
@@ -41,20 +43,22 @@ export class AddmissingpersonPage implements OnInit {
     const phone=this.phone
 
     this.afstore.doc(`users/${this.user.getUID()}`).update({
-      addmissingperson: firestore.FieldValue.arrayUnion({
-        age,
-        gender,
-        address,
-        phone,
-        image,
-        desc,
-        name
-        
-      })
+      adminmissingperson: firestore.FieldValue.arrayUnion(`${image}`)
     })
-    //this.afstore.doc(`missingpersons/${image}`).update({  
-    //  image
-   //})
+    this.afstore.doc(`adminmissingperson/${image}`).set({
+      desc,
+      name,
+      age,
+      gender,
+      address,
+      phone,
+      Username: this.user.getUsername() 
+    })
+   // this.afstore.doc(`adminmissingpersons/${this.user.getUID()}`).update({
+     // adminmiss: firestore.FieldValue.arrayUnion({  
+       //image
+    //})
+//})
     this.showAlert("Success!","Missing person added")
   }
   fileChange(event){

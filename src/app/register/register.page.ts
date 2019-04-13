@@ -48,7 +48,6 @@ export class RegisterPage implements OnInit {
       username,
       password,
       cpassword
-    
     })
     this.user.setUser({
       username,
