@@ -9,8 +9,10 @@ const routes: Routes = [
         children: [
             { path: 'home', loadChildren: '../home/home.module#HomePageModule' },
            // { path: 'chats', loadChildren: './tabs/chats/chats.module#ChatsPageModule' },
-            { path: 'search', loadChildren: '../search/search.module#SearchPageModule' },
+            //{ path: 'search', loadChildren: '../search/search.module#SearchPageModule' },
+            { path: 'notification', loadChildren: '../notification/notification.module#NotificationPageModule' },
             { path: 'account', loadChildren: '../account/account.module#AccountPageModule' },
+
         ]
     }
 ];

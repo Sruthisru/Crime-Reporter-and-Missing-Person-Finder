@@ -54,7 +54,7 @@ export class ReportcrimePage implements OnInit {
         
         })
       this.router.navigate([ '/tabs' ])
-      this.showAlert("Success!","Done")
+      this.showAlert("Success!","Crime reported")
     }catch(error) {
         console.dir(error)
         this.showAlert("Error!","error.message")

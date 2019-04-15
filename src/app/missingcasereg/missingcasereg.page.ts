@@ -82,7 +82,7 @@ export class MissingcaseregPage implements OnInit {
        image
     })
 })*/
-    this.showAlert("Success!","Done")
+    this.showAlert("Success!","Missing case registered")
 
   }
 

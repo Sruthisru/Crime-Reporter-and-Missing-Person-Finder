@@ -59,7 +59,7 @@ export class FilecomplaintPage implements OnInit {
       })
     */
         this.router.navigate([ '/tabs' ])
-        this.showAlert("Success!","Done")
+        this.showAlert("Success!","Complaint filed")
       }catch(error) {
           console.dir(error)
           this.showAlert("Error!","error.message")

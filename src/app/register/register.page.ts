@@ -55,11 +55,11 @@ export class RegisterPage implements OnInit {
     })
 
     this.router.navigate([ '/login' ])
-    this.showAlert("Success!","Welcome")
+    this.showAlert("Welcome, "+username+"!","You have registered successfully")
   }
   catch(error) {
       console.dir(error)
-      this.showAlert("Error!","error.message")
+      this.showAlert("Error!",error.message)
     
     }
   }
@@ -72,4 +72,7 @@ export class RegisterPage implements OnInit {
   await alert.present()
 
   }
+  backClick(){
+  this.router.navigate([ '/login' ])
+}
 }

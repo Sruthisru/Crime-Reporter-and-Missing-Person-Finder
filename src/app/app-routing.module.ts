@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthService } from './auth.service'
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'firstpage', pathMatch: 'full' },
  // { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'listcrimes', loadChildren: './listcrimes/listcrimes.module#ListcrimesPageModule' },
   { path: 'listmissing', loadChildren: './listmissing/listmissing.module#ListmissingPageModule' },
   { path: 'editprofile', loadChildren: './editprofile/editprofile.module#EditprofilePageModule' },
+  { path: 'firstpage', loadChildren: './firstpage/firstpage.module#FirstpagePageModule' },
 
   //{ path: 'profile', loadChildren: './account/profile/profile.module#ProfilePageModule' },
   //{ path: 'channel-messages', loadChildren: './tabs/chats/channel-messages/channel-messages.module#ChannelMessagesPageModule' },

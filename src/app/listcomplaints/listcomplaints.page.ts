@@ -15,7 +15,7 @@ export class ListcomplaintsPage implements OnInit {
   complaints	
   username: string
 	constructor(private afs: AngularFirestore, private user: UserService, private router: Router) {
-		this.mainuser = afs.doc(`complaints`)
+		this.mainuser = afs.doc(`users/${user.getUID()}`)
 		this.sub = this.mainuser.valueChanges().subscribe(event => {
       this.complaints = event.complaints
       this.username = event.username

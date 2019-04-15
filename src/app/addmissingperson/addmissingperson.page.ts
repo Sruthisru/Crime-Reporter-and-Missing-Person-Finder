@@ -62,7 +62,8 @@ export class AddmissingpersonPage implements OnInit {
     this.showAlert("Success!","Missing person added")
   }
   fileChange(event){
-    
+    this.busy = true
+
     const files = event.target.files
 
     const data = new FormData()
@@ -74,6 +75,8 @@ export class AddmissingpersonPage implements OnInit {
     .subscribe(event => {
     console.log(event)
     this.imgURL = event.json().file
+    this.busy = false
+
     })
   }
 
