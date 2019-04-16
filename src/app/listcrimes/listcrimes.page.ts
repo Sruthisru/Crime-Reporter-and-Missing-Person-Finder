@@ -1,7 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore'
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+
+export interface User {
+  username: string;
+  address: string;
+  no: string;
+  crimes: Crime[];
+}
+
+export interface Crime{
+  description: string;
+  location: string;
+  date: string;
+  subject: string;
+}
 
 @Component({
   selector: 'app-listcrimes',
@@ -9,22 +25,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./listcrimes.page.scss'],
 })
 export class ListcrimesPage implements OnInit {
-
-  mainuser: AngularFirestoreDocument
-  sub
-  crimes
-  complaints	
-  username: string
+  userCollection: AngularFirestoreCollection<User>;
+  users: Observable<User[]>;
 	constructor(private afs: AngularFirestore, private user: UserService, private router: Router) {
-		//this.mainuser = afs.doc(`crimes`)
-		//this.sub = this.mainuser.valueChanges().subscribe(event => {
-    //  this.crimes = event.crimes
-     // this.username = event.username
-      //console.log(event);
-      this.crimes = afs.collection<any>('users');
-      
+    console.log(afs);
+    this.userCollection = afs.collection<User>('users');
+    this.users = this.userCollection.valueChanges();
   }
   ngOnInit() {
   }
 
-}
+  }

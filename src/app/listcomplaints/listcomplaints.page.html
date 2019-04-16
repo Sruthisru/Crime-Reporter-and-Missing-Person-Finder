@@ -3,17 +3,29 @@
       <ion-button slot="start" fill="clear" color="dark" (click)="backClick()">
           <ion-icon name="arrow-back"></ion-icon>
         </ion-button>
-    <ion-title>listcomplaints</ion-title>
+    <ion-title>List complaints</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <div id="comps" *ngIf="complaints">
-		<div class="comp" *ngFor="let comp of complaints">
+  <div id="comps" *ngIf="users">
+		<div class="comp" *ngFor="let user of users | async">
 			<ion-card>
       <p>
-        Complaints: {{ comp.subject }}
-      </p>>      
+        Username: {{ user.username }}
+      </p>      
+      <p>
+        Address: {{ user.address }}
+      </p>      
+      <p>
+        Number: {{ user.no }}
+      </p>
+      <div>
+        <h4>Complaints</h4>
+        <div class="comp" *ngFor="let comp of user.complaints">
+          <p>{{ comp.description}}</p>
+        </div>
+      </div>      
     </ion-card>
     </div>
   </div>

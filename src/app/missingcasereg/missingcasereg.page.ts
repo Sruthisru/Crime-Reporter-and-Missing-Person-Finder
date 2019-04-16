@@ -52,19 +52,17 @@ export class MissingcaseregPage implements OnInit {
     const phone=this.phone
 
     this.afstore.doc(`users/${this.user.getUID()}`).update({
-      missingperson: firestore.FieldValue.arrayUnion(`${image}`)
-    })
-    this.afstore.doc(`missingperson/${image}`).set({
-      desc,
-      name,
-      age,
-      gender,
-      address,
-      phone,
-      Username: this.user.getUsername() 
-    })
+      missingperson: firestore.FieldValue.arrayUnion({
+        image,
+        desc,
+        name,
+        age,
+        gender,
+        address,
+        phone 
+      })
+  })
     
-
   /*  
   this.afstore.doc(`missingpersons/${this.user.getUID()}`).get().then(function(doc) {
       if (doc.exists) {

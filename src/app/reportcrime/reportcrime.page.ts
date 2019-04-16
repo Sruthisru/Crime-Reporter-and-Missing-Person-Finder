@@ -42,17 +42,17 @@ export class ReportcrimePage implements OnInit {
 
   reportCrime(){
     const { subject, location, date, description }=this
-    try{  
-      this.afstore.doc(`users/${this.user.getUID()}`).update({
-        crimes: firestore.FieldValue.arrayUnion(`${subject}`)
-      })    
-      this.afstore.doc(`crimes/${subject}`).set({
-          location,
-          date,
-          description,
-        Username: this.user.getUsername()   
-        
+          try{  
+        this.afstore.doc(`users/${this.user.getUID()}`).update({
+          crimes: firestore.FieldValue.arrayUnion({
+            subject,
+            location,
+            date,
+            description
+          })
         })
+
+
       this.router.navigate([ '/tabs' ])
       this.showAlert("Success!","Crime reported")
     }catch(error) {
