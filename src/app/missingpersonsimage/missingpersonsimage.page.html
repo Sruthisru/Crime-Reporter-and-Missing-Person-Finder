@@ -8,11 +8,11 @@
 	<div id="images" *ngIf="adminmissingperson">
 		<div class="image" *ngFor="let miss of 	adminmissingperson">
 			<ion-card>
-				<ion-img src="https://ucarecdn.com/{{ miss }}/"></ion-img>
+				<ion-img src="https://ucarecdn.com/{{ miss.image }}/"></ion-img>
       </ion-card>
       <ion-card-content>
         <p>
-          Description : {{ adminmissingperson.desc }}
+          Name : {{ miss.name }}
         </p>
       </ion-card-content>
     </div>

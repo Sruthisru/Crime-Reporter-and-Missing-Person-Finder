@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'listmissing', loadChildren: './listmissing/listmissing.module#ListmissingPageModule' },
   { path: 'editprofile', loadChildren: './editprofile/editprofile.module#EditprofilePageModule' },
   { path: 'firstpage', loadChildren: './firstpage/firstpage.module#FirstpagePageModule' },
+  { path: 'image', loadChildren: './image/image.module#ImagePageModule' },
 
   //{ path: 'profile', loadChildren: './account/profile/profile.module#ProfilePageModule' },
   //{ path: 'channel-messages', loadChildren: './tabs/chats/channel-messages/channel-messages.module#ChannelMessagesPageModule' },

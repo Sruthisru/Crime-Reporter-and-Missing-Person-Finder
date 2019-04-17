@@ -23,8 +23,12 @@
       <div>
         <h4>Missing person</h4>
         <div class="comp" *ngFor="let miss of user.missingperson">
-          <p>{{ miss.image }}</p>
-          <p>{{ miss.name }}</p>
+          <ion-card>
+            <ion-img src="https://ucarecdn.com/{{ miss.image }}/"></ion-img>
+          </ion-card>
+          <ion-card-content>
+          <p>name: {{ miss.name }}</p>
+        </ion-card-content>
         </div>
       </div>      
     </ion-card>

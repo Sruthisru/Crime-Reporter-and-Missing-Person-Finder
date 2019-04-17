@@ -43,16 +43,15 @@ export class AddmissingpersonPage implements OnInit {
     const phone=this.phone
 
     this.afstore.doc(`users/${this.user.getUID()}`).update({
-      adminmissingperson: firestore.FieldValue.arrayUnion(`${image}`)
-    })
-    this.afstore.doc(`adminmissingperson/${image}`).set({
+      adminmissingperson: firestore.FieldValue.arrayUnion({
+      image,
       desc,
       name,
       age,
       gender,
       address,
-      phone,
-      Username: this.user.getUsername() 
+      phone
+        })
     })
    // this.afstore.doc(`adminmissingpersons/${this.user.getUID()}`).update({
      // adminmiss: firestore.FieldValue.arrayUnion({  
