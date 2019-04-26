@@ -33,5 +33,10 @@ export class ListcomplaintsPage implements OnInit {
   }
   ngOnInit() {
   }
-
+  backClick(){
+    this.router.navigate([ '/admintabs/adminaccount' ])
+  }
+  goTo(userID: string){
+    this.router.navigate([ '/complaintstatus/' + userID])
+  }
   }

@@ -37,5 +37,7 @@ export class ListmissingPage implements OnInit {
   }
   ngOnInit() {
   }
-
+  backClick(){
+    this.router.navigate([ '/admintabs/adminaccount' ])
+  }
   }

@@ -10,7 +10,7 @@
 <ion-content padding>
   <div id="comps" *ngIf="users">
 		<div class="comp" *ngFor="let user of users | async">
-			<ion-card>
+			<ion-card (click)="goTo(user)">
       <p>
         Username: {{ user.username }}
       </p>      

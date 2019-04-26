@@ -34,5 +34,7 @@ export class ListcrimesPage implements OnInit {
   }
   ngOnInit() {
   }
-
+  backClick(){
+    this.router.navigate([ '/admintabs/adminaccount' ])
+  }
   }

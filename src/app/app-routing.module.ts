@@ -21,7 +21,9 @@ const routes: Routes = [
   { path: 'editprofile', loadChildren: './editprofile/editprofile.module#EditprofilePageModule' },
   { path: 'firstpage', loadChildren: './firstpage/firstpage.module#FirstpagePageModule' },
   { path: 'image', loadChildren: './image/image.module#ImagePageModule' },
-
+  { path: 'listcase', loadChildren: './listcase/listcase.module#ListcasePageModule' },
+  { path: 'complaintstatus/:id', loadChildren: './complaintstatus/complaintstatus.module#ComplaintstatusPageModule' },
+ 
   //{ path: 'profile', loadChildren: './account/profile/profile.module#ProfilePageModule' },
   //{ path: 'channel-messages', loadChildren: './tabs/chats/channel-messages/channel-messages.module#ChannelMessagesPageModule' },
   //{ path: 'channel-create', loadChildren: './tabs/chats/channel-create/channel-create.module#ChannelCreatePageModule' },

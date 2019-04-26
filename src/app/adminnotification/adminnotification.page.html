@@ -1,9 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Notification</ion-title>
+    <ion-title>Notifications</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <div id="comps" *ngIf="users">
+		<div class="comp" *ngFor="let user of users | async">
+			<ion-card>
+      <div>
 
+        <div class="comp" *ngFor="let comp of user.complaints">
+          <p>Complaints: {{ comp.subject }}</p>
+        </div>
+        <div class="comp" *ngFor="let crime of user.crimes">
+          <p>crimes: {{ crime.subject }}</p>
+        </div>
+    
+      </div>      
+    </ion-card>
+    </div>
+  </div>
 </ion-content>
+

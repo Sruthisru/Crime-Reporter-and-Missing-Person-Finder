@@ -1,48 +1,48 @@
 <ion-header>
-   <ion-toolbar>
-      <ion-button slot="start" fill="clear" color="dark" (click)="backClick()">
-          <ion-icon name="arrow-back"></ion-icon>
-        </ion-button>
-      <ion-title>Signup</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content padding>
-    <ion-list>
-        <ion-item>
-            <ion-label position = "floating">Name</ion-label>
-            <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
-        </ion-item>
-                
-        <ion-item>
-            <ion-label position = "floating">Address</ion-label>
-            <ion-input type="text" [(ngModel)]="address" name="address"></ion-input>
-        </ion-item>
-
-        <ion-item>
-            <ion-label position = "floating">Contact number</ion-label>
-            <ion-input type="text" [(ngModel)]="no" name="no"></ion-input>
-        </ion-item>
-
-      <ion-item>
-        <ion-label position = "floating">Username</ion-label>
-        <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position = "floating">Password</ion-label>
-        <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
-      </ion-item>
-    
-  
-    <ion-item>
-      <ion-label position = "floating">Confirm Password</ion-label>
-      <ion-input type="password" [(ngModel)]="cpassword" name="cpassword"></ion-input>
-    </ion-item>
-  </ion-list>
-  
-      <div padding>
-        <ion-button fill="solid" expand="block" color="dark" (click)="register()" >Signup</ion-button>
-      </div>
-  </ion-content>
+  <ion-toolbar>
+     <ion-button slot="start" fill="clear" color="dark" (click)="backClick()">
+         <ion-icon name="arrow-back"></ion-icon>
+       </ion-button>
+     <ion-title>Signup</ion-title>
+   </ion-toolbar>
+ </ion-header>
  
+ <ion-content padding>
+   <ion-list>
+       <ion-item>
+           <ion-label position = "floating">Name</ion-label>
+           <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+       </ion-item>
+               
+       <ion-item>
+           <ion-label position = "floating">Address</ion-label>
+           <ion-input type="text" [(ngModel)]="address" name="address"></ion-input>
+       </ion-item>
+
+       <ion-item>
+           <ion-label position = "floating">Contact number</ion-label>
+           <ion-input type="text" [(ngModel)]="no" name="no"></ion-input>
+       </ion-item>
+
+     <ion-item>
+       <ion-label position = "floating">Username</ion-label>
+       <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+     </ion-item>
+     
+     <ion-item>
+       <ion-label position = "floating">Password</ion-label>
+       <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+     </ion-item>
+   
+ 
+   <ion-item>
+     <ion-label position = "floating">Confirm Password</ion-label>
+     <ion-input type="password" [(ngModel)]="cpassword" name="cpassword"></ion-input>
+   </ion-item>
+ </ion-list>
+ 
+     <div padding>
+       <ion-button fill="solid" expand="block" color="dark" (click)="register()" >Signup</ion-button>
+     </div>
+ </ion-content>
+

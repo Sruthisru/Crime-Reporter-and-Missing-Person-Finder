@@ -67,10 +67,10 @@ export class AddmissingpersonPage implements OnInit {
 
     const data = new FormData()
     data.append('file',files[0])
-    data.append('UPLOADCARE_STORE', '1')
-    data.append('UPLOADCARE_PUB_KEY', '67c8740eafce91809529' )
+    //data.append('UPLOADCARE_STORE', '1')
+    //data.append('UPLOADCARE_PUB_KEY', '67c8740eafce91809529' )
     
-    this.http.post('https://upload.uploadcare.com/base/', data)
+    this.http.post('http://127.0.0.1:5000/upload', data)
     .subscribe(event => {
     console.log(event)
     this.imgURL = event.json().file
