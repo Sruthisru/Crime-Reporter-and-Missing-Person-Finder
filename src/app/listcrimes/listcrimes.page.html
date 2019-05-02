@@ -21,8 +21,9 @@
         Number: {{ user.no }}
       </p>
       <div>
-        <h4>Crimes</h4>
         <div class="comp" *ngFor="let crime of user.crimes">
+            <h4>Crimes</h4>
+
           <p>{{ crime.description}}</p>
         </div>
       </div>      

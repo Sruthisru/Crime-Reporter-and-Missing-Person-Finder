@@ -56,9 +56,8 @@ export class FilecomplaintPage implements OnInit {
         description,
       Username: this.user.getUsername()   
       
-      })
-    */
-        this.router.navigate([ '/tabs' ])
+      })*/
+        this.router.navigate([ '/filecomplaint' ])
         this.showAlert("Success!","Complaint filed")
       }catch(error) {
           console.dir(error)

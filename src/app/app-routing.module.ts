@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'image', loadChildren: './image/image.module#ImagePageModule' },
   { path: 'listcase', loadChildren: './listcase/listcase.module#ListcasePageModule' },
   { path: 'complaintstatus/:id', loadChildren: './complaintstatus/complaintstatus.module#ComplaintstatusPageModule' },
+  { path: 'list/:name', loadChildren: './list/list.module#ListPageModule' },
  
   //{ path: 'profile', loadChildren: './account/profile/profile.module#ProfilePageModule' },
   //{ path: 'channel-messages', loadChildren: './tabs/chats/channel-messages/channel-messages.module#ChannelMessagesPageModule' },

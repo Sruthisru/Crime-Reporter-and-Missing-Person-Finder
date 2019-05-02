@@ -80,6 +80,8 @@ export class MissingcaseregPage implements OnInit {
        image
     })
 })*/
+this.router.navigate([ '/tabs' ])
+
     this.showAlert("Success!","Missing case registered")
 
   }

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card *ngIf = "nam | async as namedata">
+<ion-card-content>
+<p>Name: {{ name }}</p>
+<p>Age: {{ namedata.age }}</p>
+
+</ion-card-content>
+</ion-card>
+
+</ion-content>

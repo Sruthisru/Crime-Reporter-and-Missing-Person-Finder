@@ -24,12 +24,14 @@ export interface Complaint{
   styleUrls: ['./listcomplaints.page.scss'],
 })
 export class ListcomplaintsPage implements OnInit {
+  userID
   userCollection: AngularFirestoreCollection<User>;
   users: Observable<User[]>;
 	constructor(private afs: AngularFirestore, private user: UserService, private router: Router) {
-    console.log(afs);
     this.userCollection = afs.collection<User>('users');
     this.users = this.userCollection.valueChanges();
+
+
   }
   ngOnInit() {
   }
@@ -37,6 +39,7 @@ export class ListcomplaintsPage implements OnInit {
     this.router.navigate([ '/admintabs/adminaccount' ])
   }
   goTo(userID: string){
+    console.log(this.userID)
     this.router.navigate([ '/complaintstatus/' + userID])
   }
   }

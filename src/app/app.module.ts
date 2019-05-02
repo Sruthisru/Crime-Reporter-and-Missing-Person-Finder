@@ -18,6 +18,12 @@ import { MissingService } from './missing.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { ShareModule } from './share.module';
+
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -29,12 +35,14 @@ import { ShareModule } from './share.module';
       AngularFireAuthModule,
       AngularFirestoreModule,
       HttpModule,
-      ShareModule
+      ShareModule,
+      ReactiveFormsModule,
     ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    LocalNotifications,
     UserService,
     MissingService,
     AuthService

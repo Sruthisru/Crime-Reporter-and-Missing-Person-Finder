@@ -5,6 +5,7 @@ import { AlertController} from '@ionic/angular'
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore'
 import { UserService } from '../user.service';
+import { FormControl,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -32,7 +33,9 @@ export class RegisterPage implements OnInit {
 
   
   async register(){
-    const { name, address, no, username, password,cpassword }=this
+    const {name, address, no, username, password, cpassword }=this
+    //name = new FormControl('',Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*')]))
+
     if( password !== cpassword ){
       this.showAlert("Error!", " password does't match")
       return console.error("Password doesn't match")

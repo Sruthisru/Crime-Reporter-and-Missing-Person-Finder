@@ -10,12 +10,19 @@ export interface User {
   address: string;
   no: string;
   complaints: Complaint[];
+  crimes: Crimes[];
 }
 
 export interface Complaint{
   description: string;
   location: string;
   subject: string;
+}
+export interface Crimes{
+  description: string;
+  location: string;
+  subject: string;
+  date: string;
 }
 @Component({
   selector: 'app-adminnotification',

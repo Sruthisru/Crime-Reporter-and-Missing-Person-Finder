@@ -28,7 +28,7 @@ export class ReportcrimePage implements OnInit {
   ngOnInit() {
   }
   backClick(){
-    this.router.navigate([ '/tabs' ])
+    this.router.navigate([ '/reportcrime' ])
   }
   
   async showAlert(header: string, message: string) {

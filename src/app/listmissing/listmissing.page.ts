@@ -40,4 +40,8 @@ export class ListmissingPage implements OnInit {
   backClick(){
     this.router.navigate([ '/admintabs/adminaccount' ])
   }
+goTo(name: string){
+  this.router.navigate(['list/' + name])
+}
+
   }
