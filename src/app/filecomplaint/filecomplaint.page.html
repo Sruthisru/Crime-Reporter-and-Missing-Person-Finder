@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
-      <ion-button slot="start" (click)="backClick()">
+      <ion-button slot="start" fill="clear" color="dark" (click)="backClick()">
           <ion-icon name="arrow-back"></ion-icon>
-      </ion-button>
+        </ion-button>
     <ion-title>File Complaint</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,15 +14,15 @@
       </ion-item>
     <ion-item>
       <ion-label position = "floating">Subject</ion-label>
-      <ion-input type="text" [(ngModel)]="subject" name="subject"></ion-input>
+      <ion-input type="text" [(ngModel)]="subject" name="subject" clearInput="true"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label position = "floating">Location</ion-label>
-        <ion-input type="text" [(ngModel)]="location" name="location"></ion-input>
+        <ion-input type="text" [(ngModel)]="location" name="location" clearInput="true"></ion-input>
       </ion-item>
       <ion-item>
       <ion-label position = "floating">Description</ion-label>
-      <ion-input type="text" [(ngModel)]="description" name="description"></ion-input>
+      <ion-input type="text" [(ngModel)]="description" name="description" clearInput="true"></ion-input>
       </ion-item>
   </ion-list>
   <div padding>

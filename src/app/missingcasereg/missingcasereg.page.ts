@@ -3,8 +3,11 @@ import { AlertController} from '@ionic/angular'
 import { Http } from '@angular/http';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
+//import { MissingService } from '../missing.service';
+
 import { firestore } from 'firebase/app';
 import { Router } from '@angular/router';
+import { sample } from 'rxjs/operators';
 
 @Component({
   selector: 'app-missingcasereg',
@@ -13,20 +16,23 @@ import { Router } from '@angular/router';
 })
 export class MissingcaseregPage implements OnInit {
 
-  name: string
+  name: string=""
   age: number
-  gender: string
-  address: string
+  gender: string=""
+  address: string=""
   phone: number
-  desc: string
+  desc: string=""
   imageURL: string
-  
+  noFace: boolean = false
+
+	busy: boolean = false
 
   @ViewChild('fileButton') fileButton
 
   constructor(public http: Http,
     public afstore: AngularFirestore,
     public user: UserService,
+    //public missing: MissingService,
     public router :Router,
     public alert: AlertController
 
@@ -35,6 +41,7 @@ export class MissingcaseregPage implements OnInit {
   ngOnInit() {
   }
 
+  
   createPost() {
     const image= this.imageURL
     const desc=this.desc
@@ -45,23 +52,42 @@ export class MissingcaseregPage implements OnInit {
     const phone=this.phone
 
     this.afstore.doc(`users/${this.user.getUID()}`).update({
-      missing: firestore.FieldValue.arrayUnion({
+      missingperson: firestore.FieldValue.arrayUnion({
+        image,
+        desc,
+        name,
         age,
         gender,
         address,
-        phone,
-        image,
-        desc,
-        name
-        
+        phone 
       })
+  })
+    
+  /*  
+  this.afstore.doc(`missingpersons/${this.user.getUID()}`).get().then(function(doc) {
+      if (doc.exists) {
+          console.log("Document data:", doc.data());
+      } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+      }
+  }).catch(function(error) {
+      console.log("Error getting document:", error);
+  });
+
+    this.afstore.doc(`missingpersons/${this.user.getUID()}`).set({
+      miss: firestore.FieldValue.arrayUnion({  
+       image
     })
-    this.showAlert("Success!","Done")
+})*/
+this.router.navigate([ '/tabs' ])
+
+    this.showAlert("Success!","Missing case registered")
 
   }
 
   fileChanged(event){
-    
+    this.busy = true
     const files = event.target.files
 
     const data = new FormData()
@@ -73,6 +99,11 @@ export class MissingcaseregPage implements OnInit {
     .subscribe(event => {
     console.log(event)
     this.imageURL = event.json().file
+    this.busy = false
+
+    this.http.get(`https://ucarecdn.com/${this.imageURL}/detect_faces/`).subscribe(event => {
+      this.noFace = event.json().faces == 0
+    })
     })
   }
 

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-button slot="start" fill="clear" color="dark" (click)="backClick()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+    <ion-title>List crimes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div id="comps" *ngIf="users">
+		<div class="comp" *ngFor="let user of users | async">
+			<ion-card>
+      <p>
+        Username: {{ user.username }}
+      </p>      
+      <p>
+        Address: {{ user.address }}
+      </p>      
+      <p>
+        Number: {{ user.no }}
+      </p>
+      <div>
+        <div class="comp" *ngFor="let crime of user.crimes">
+            <h4>Crimes</h4>
+
+          <p>{{ crime.description}}</p>
+        </div>
+      </div>      
+    </ion-card>
+    </div>
+  </div>
+</ion-content>
+

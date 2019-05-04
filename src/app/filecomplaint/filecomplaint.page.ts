@@ -38,24 +38,31 @@ export class FilecomplaintPage implements OnInit {
     })
     await alert.present()
   }
-
-  fileComplaint(){
-    const { subject, location, description }=this
-    try{  
-    this.afstore.doc(`users/${this.user.getUID()}`).update({
-      crimes: firestore.FieldValue.arrayUnion({
-        subject,
-        location,
-        description
+  
+    fileComplaint(){
+      const { subject, location, description }=this
+      try{  
+      this.afstore.doc(`users/${this.user.getUID()}`).update({
+        complaints: firestore.FieldValue.arrayUnion({
+          subject,
+          location,
+          description
+        })
       })
-    })
-    
-      this.router.navigate([ '/tabs' ])
-      this.showAlert("Success!","Done")
-    }catch(error) {
-        console.dir(error)
-        this.showAlert("Error!","error.message")
+      /* complaints: firestore.FieldValue.arrayUnion(`${subject}`)
+    })    
+    this.afstore.doc(`complaints/${subject}`).set({
+        location,
+        description,
+      Username: this.user.getUsername()   
       
+      })*/
+        this.router.navigate([ '/filecomplaint' ])
+        this.showAlert("Success!","Complaint filed")
+      }catch(error) {
+          console.dir(error)
+          this.showAlert("Error!","error.message")
+        
+        }
       }
-    }
 }

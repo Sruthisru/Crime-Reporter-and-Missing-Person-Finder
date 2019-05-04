@@ -1,36 +1,72 @@
 <ion-header>
   <ion-toolbar>
+<ion-button slot="start" fill="clear" color="dark" (click)="backClick()">
+		<ion-icon name="arrow-back"></ion-icon>
+	</ion-button>
     <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-	<!--<h3 class="userDetails">GEC student</h3>
 
 	
-<app-loading *ngIf="!posts"></app-loading>
+		<!--<app-loading *ngIf="!posts"></app-loading>-->
 
 	<div id="profile-info" *ngIf="username">
-		<ion-grid>
+		<!--<ion-grid>
 			<ion-row>
-	
 				<ion-col size="8">
-					<p>{{ username }}</p>
+					{{ name }}
 					<ion-button shape="round" color="primary" routerLink="/tabs/edit-profile">Edit Profile</ion-button>
 				</ion-col>
 			</ion-row>
-		</ion-grid>
+			<ion-row>
+				<ion-col>
+					{{ no }}
+				</ion-col>
+			</ion-row>
+		</ion-grid>-->
+		<ion-list class="headerMAin">
+			<ion-item color="dark">
+				<h3 class="userName">{{ name }}</h3>
+			</ion-item>
+			<ion-item lines="full">
+				<ion-text color="dark">
+				<h5 class="userno">{{ no }}</h5>
+				</ion-text>
+			</ion-item>
+		</ion-list>
+		<ion-list>
+			<ion-item>
+				<h5>Address</h5>
+				<br><br><br>
+				{{ address }}
+			</ion-item>
+			<ion-item>
+				<h5>Username</h5>
+				<br><br><br>
+				{{ username }}
+			</ion-item>
+			
+		</ion-list>
+		<ion-button shape="round" color="dark" (click)="editprofile()" *ngIf="!imageURL" fill="outline">Edit profile</ion-button>
+
+	</div>
+</ion-content>
+<!--
+	Getting image from firebase-executable code
+
+
+	<div id="images" *ngIf="missing">
+		<div class="image" *ngFor="let miss of missing">
+			<ion-card>
+				<ion-img src="https://ucarecdn.com/{{ miss.image }}/"></ion-img>
+			</ion-card>
+		</div>
 	</div>
 -->
 
-	<div id="images" *ngIf="posts">
-		<div class="image" *ngFor="let post of posts">
-			<ion-card>
-				<ion-img src="https://ucarecdn.com/{{ post.image }}/"></ion-img>
-			</ion-card>
+
+
 	<!--
 			<img (click)="goTo(post)" class="main-image" src="https://ucarecdn.com/{{ post }}/-/scale_crop/200x200/center/" />
 	-->
-		</div>
-	</div>
-
-</ion-content>

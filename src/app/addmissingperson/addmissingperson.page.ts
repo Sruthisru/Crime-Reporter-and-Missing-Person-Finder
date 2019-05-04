@@ -12,15 +12,17 @@ import { Router } from '@angular/router';
 })
 export class AddmissingpersonPage implements OnInit {
 
-  name: string
+  name: string=""
   age: number
-  gender: string
-  address: string
+  gender: string=""
+  address: string=""
   phone: number
-  desc: string
-  imageURL: string
+  desc: string=""
+  imgURL: string
 
-  @ViewChild('fileButton') fileButton
+  busy: boolean = false
+
+  @ViewChild('filebutton') filebutton
 
   constructor(public http: Http,
     public afstore: AngularFirestore,
@@ -32,7 +34,7 @@ export class AddmissingpersonPage implements OnInit {
   ngOnInit() {
   }
   addMissingPerson(){
-  const image= this.imageURL
+  const image= this.imgURL
     const desc=this.desc
     const name=this.name
     const age=this.age
@@ -41,37 +43,44 @@ export class AddmissingpersonPage implements OnInit {
     const phone=this.phone
 
     this.afstore.doc(`users/${this.user.getUID()}`).update({
-      missing: firestore.FieldValue.arrayUnion({
-        age,
-        gender,
-        address,
-        phone,
-        image,
-        desc,
-        name
-        
-      })
+      adminmissingperson: firestore.FieldValue.arrayUnion({
+      image,
+      desc,
+      name,
+      age,
+      gender,
+      address,
+      phone
+        })
     })
+   // this.afstore.doc(`adminmissingpersons/${this.user.getUID()}`).update({
+     // adminmiss: firestore.FieldValue.arrayUnion({  
+       //image
+    //})
+//})
     this.showAlert("Success!","Missing person added")
   }
-  fileChanged(event){
-    
+  fileChange(event){
+    this.busy = true
+
     const files = event.target.files
 
     const data = new FormData()
     data.append('file',files[0])
-    data.append('UPLOADCARE_STORE', '1')
-    data.append('UPLOADCARE_PUB_KEY', '67c8740eafce91809529' )
+    //data.append('UPLOADCARE_STORE', '1')
+    //data.append('UPLOADCARE_PUB_KEY', '67c8740eafce91809529' )
     
-    this.http.post('https://upload.uploadcare.com/base/', data)
+    this.http.post('http://127.0.0.1:5000/upload', data)
     .subscribe(event => {
     console.log(event)
-    this.imageURL = event.json().file
+    this.imgURL = event.json().file
+    this.busy = false
+
     })
   }
 
-uploadFile(){
-  this.fileButton.nativeElement.click()
+uploadImage(){
+  this.filebutton.nativeElement.click()
 }
 
 

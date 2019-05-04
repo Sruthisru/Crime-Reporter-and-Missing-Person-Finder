@@ -1,0 +1,24 @@
+.firstpage {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;  
+    width: 50%;
+}
+
+.img {
+    padding-top: 35%;
+    padding-left: 35%;
+    padding-right: 35%;
+    width:100%;
+    align-content: center;
+    align-self: center;
+	height: 50%;
+}

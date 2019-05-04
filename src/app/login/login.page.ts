@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
           username,
           uid:res.user.uid
         })
-      this.showAlert("Success,'username'!","Logged in")
+      this.showAlert("Welcome, "+username+"!","You are logged in successfully")
       if( username == "admin"){
         this.router.navigate([ '/admintabs' ])
       }
@@ -51,8 +51,10 @@ export class LoginPage implements OnInit {
       if(err.code === "auth/user-not-found"){
         console.log("User not found")
         this.showAlert("Error!","User not found")
-
       }
+      else{
+      this.showAlert("Error!","Incorrect password")
+    }
     }
 }
 async showAlert(header: string, message: string) {

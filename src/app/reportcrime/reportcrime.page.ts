@@ -28,7 +28,7 @@ export class ReportcrimePage implements OnInit {
   ngOnInit() {
   }
   backClick(){
-    this.router.navigate([ '/tabs' ])
+    this.router.navigate([ '/reportcrime' ])
   }
   
   async showAlert(header: string, message: string) {
@@ -42,18 +42,19 @@ export class ReportcrimePage implements OnInit {
 
   reportCrime(){
     const { subject, location, date, description }=this
-    try{  
-    this.afstore.doc(`users/${this.user.getUID()}`).update({
-      crimes: firestore.FieldValue.arrayUnion({
-        subject,
-        location,
-        date,
-        description
-      })
-    })
-    
+          try{  
+        this.afstore.doc(`users/${this.user.getUID()}`).update({
+          crimes: firestore.FieldValue.arrayUnion({
+            subject,
+            location,
+            date,
+            description
+          })
+        })
+
+
       this.router.navigate([ '/tabs' ])
-      this.showAlert("Success!","Done")
+      this.showAlert("Success!","Crime reported")
     }catch(error) {
         console.dir(error)
         this.showAlert("Error!","error.message")
