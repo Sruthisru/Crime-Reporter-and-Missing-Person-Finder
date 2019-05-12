@@ -5,6 +5,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 import { firestore } from 'firebase/app';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-addmissingperson',
   templateUrl: './addmissingperson.page.html',
@@ -19,6 +21,7 @@ export class AddmissingpersonPage implements OnInit {
   phone: number
   desc: string=""
   imgURL: string
+  environment: Object
 
   busy: boolean = false
 
@@ -29,7 +32,7 @@ export class AddmissingpersonPage implements OnInit {
     public user: UserService,
     public router :Router,
     public alert: AlertController
-  ) { }
+  ) { this.environment = environment }
 
   ngOnInit() {
   }
@@ -67,15 +70,15 @@ export class AddmissingpersonPage implements OnInit {
 
     const data = new FormData()
     data.append('file',files[0])
+    data.append('user_id', this.user.getUID())
+    data.append('admin', 'true')
     //data.append('UPLOADCARE_STORE', '1')
     //data.append('UPLOADCARE_PUB_KEY', '67c8740eafce91809529' )
     
-    this.http.post('http://127.0.0.1:5000/upload', data)
+    this.http.post(environment.image_recognition_server  + "upload", data)
     .subscribe(event => {
-    console.log(event)
-    this.imgURL = event.json().file
+    this.imgURL = event.json().image_id
     this.busy = false
-
     })
   }
 

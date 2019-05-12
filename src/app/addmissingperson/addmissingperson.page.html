@@ -26,7 +26,7 @@
       <ion-button shape="round" color="primary" (click)="uploadImage()" *ngIf="!imgURL" fill="outline">Upload image</ion-button>
       
       <ion-card *ngIf ="imgURL">
-        <ion-img src="https://ucarecdn.com/{{ imgURL }}/"></ion-img>
+        <ion-img src="{{environment.image_recognition_server}}image/{{user.getUID()}}/{{ imgURL }}"></ion-img>
        
       <ion-card-content>
         <ion-textarea clearInput="true" placeholder="enter name" [(ngModel)]="name"></ion-textarea>

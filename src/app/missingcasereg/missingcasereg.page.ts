@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 //import { MissingService } from '../missing.service';
+import { environment } from '../../environments/environment';
 
 import { firestore } from 'firebase/app';
 import { Router } from '@angular/router';
@@ -24,7 +25,7 @@ export class MissingcaseregPage implements OnInit {
   desc: string=""
   imageURL: string
   noFace: boolean = false
-
+  environment: Object
 	busy: boolean = false
 
   @ViewChild('fileButton') fileButton
@@ -36,7 +37,7 @@ export class MissingcaseregPage implements OnInit {
     public router :Router,
     public alert: AlertController
 
-    ) { }
+    ) { this.environment = environment}
 
   ngOnInit() {
   }
@@ -50,10 +51,12 @@ export class MissingcaseregPage implements OnInit {
     const gender=this.gender
     const address=this.address
     const phone=this.phone
+    const user_id = this.user.getUID()
 
     this.afstore.doc(`users/${this.user.getUID()}`).update({
       missingperson: firestore.FieldValue.arrayUnion({
         image,
+        user_id,
         desc,
         name,
         age,
@@ -92,18 +95,14 @@ this.router.navigate([ '/tabs' ])
 
     const data = new FormData()
     data.append('file',files[0])
-    data.append('UPLOADCARE_STORE', '1')
-    data.append('UPLOADCARE_PUB_KEY', '67c8740eafce91809529' )
-    
-    this.http.post('https://upload.uploadcare.com/base/', data)
+    data.append('user_id', this.user.getUID())
+    data.append('admin', 'false')
+
+    this.http.post(environment.image_recognition_server + 'upload', data)
     .subscribe(event => {
     console.log(event)
-    this.imageURL = event.json().file
+    this.imageURL = event.json().image_id
     this.busy = false
-
-    this.http.get(`https://ucarecdn.com/${this.imageURL}/detect_faces/`).subscribe(event => {
-      this.noFace = event.json().faces == 0
-    })
     })
   }
 

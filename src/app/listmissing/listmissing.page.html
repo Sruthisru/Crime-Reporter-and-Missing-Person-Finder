@@ -9,28 +9,38 @@
 
 <ion-content padding>
   <div id="comps" *ngIf="users">
-		<div class="comp" *ngFor="let user of users | async">
+		<div *ngFor="let user of users | async">
 			<ion-card>
-      <p>
-        Username: {{ user.username }}
-      </p>      
-      <p>
-        Address: {{ user.address }}
-      </p>      
-      <p>
-        Number: {{ user.no }}
-      </p>
+      <div *ngIf="user.username != 'admin'">
+        <p>
+          Username: {{ user.username }}
+        </p>      
+        <p>
+         Address: {{ user.address }}
+        </p>      
+        <p>
+         Number: {{ user.no }}
+        </p>
+      </div>
       <div>
         
         <div class="comp" *ngFor="let miss of user.missingperson">
             <h4>Missing person</h4>
           <ion-card (click)="goTo(miss.name)">
 
-            <ion-img src="https://ucarecdn.com/{{ miss.image }}/"></ion-img>
+            <ion-img src="{{environment.image_recognition_server}}image/{{miss.user_id}}/{{ miss.image }}"></ion-img>
           </ion-card>
           <ion-card-content>
           <p> name: {{ miss.name }} </p>
-
+          <div padding>
+            <ion-button fill="solid" expand="block" color="dark" (click)="match(miss)" >Match checking</ion-button>
+            <div id="{{miss.image}}" *ngIf="miss.matches">
+                <div class="{{miss.image}}" *ngFor="let match of miss.matches">
+                    <ion-img class="matched-image" src="{{environment.image_recognition_server}}image/{{ match }}"></ion-img>
+                </div>
+            </div>
+          </div>
+      
         </ion-card-content>
         </div>
       </div>      

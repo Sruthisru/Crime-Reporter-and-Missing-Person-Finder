@@ -46,7 +46,7 @@
       <ion-card *ngIf ="imageURL" clearInput="true">
           <!--<app-loading *ngIf="!imageURL"></app-loading>-->
 
-        <ion-img src="https://ucarecdn.com/{{ imageURL }}/"></ion-img>
+        <ion-img src="{{environment.image_recognition_server}}image/{{user.getUID()}}/{{ imageURL }}"></ion-img>
 
       <ion-card-content>
         <ion-textarea clearInput="true" placeholder="enter name" [(ngModel)]="name"></ion-textarea>
