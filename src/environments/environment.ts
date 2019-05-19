@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  image_recognition_server: "http://192.168.0.120:5000/"
+  image_recognition_server: "https://odd-horse-48.telebit.io/"
 };
 
 /*
